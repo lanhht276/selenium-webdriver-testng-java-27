@@ -50,17 +50,17 @@ public class Topic_03_Xpath {
 	public void Register_02_Invalid_Email() {
 		driver.get("https://alada.vn/tai-khoan/dang-ky.html");
 		//Action
-				driver.findElement(By.id("txtFirstname")).sendKeys("Lanh");
-				driver.findElement(By.id("txtEmail")).sendKeys("123@456@789");
-				driver.findElement(By.id("txtCEmail")).sendKeys("123@456@789");
-				driver.findElement(By.id("txtPassword")).sendKeys("123456");
-				driver.findElement(By.id("txtCPassword")).sendKeys("123456");
-				driver.findElement(By.id("txtPhone")).sendKeys("0987654321");
-				driver.findElement(By.xpath("//form[@id='frmLogin']//button[text()='ĐĂNG KÝ']")).click();
+		driver.findElement(By.id("txtFirstname")).sendKeys("Lanh");
+		driver.findElement(By.id("txtEmail")).sendKeys("123@456@789");
+		driver.findElement(By.id("txtCEmail")).sendKeys("123@456@789");
+		driver.findElement(By.id("txtPassword")).sendKeys("123456");
+		driver.findElement(By.id("txtCPassword")).sendKeys("123456");
+		driver.findElement(By.id("txtPhone")).sendKeys("0987654321");
+		driver.findElement(By.xpath("//form[@id='frmLogin']//button[text()='ĐĂNG KÝ']")).click();		
 				
 				//Verify
-				Assert.assertEquals(driver.findElement(By.id("txtEmail-error")).getText(),"Vui lòng nhập email hợp lệ");
-				Assert.assertEquals(driver.findElement(By.id("txtCEmail-error")).getText(),"Email nhập lại không đúng");
+		Assert.assertEquals(driver.findElement(By.id("txtEmail-error")).getText(),"Vui lòng nhập email hợp lệ");
+		Assert.assertEquals(driver.findElement(By.id("txtCEmail-error")).getText(),"Email nhập lại không đúng");
 				
 	}
 	
@@ -101,16 +101,16 @@ public class Topic_03_Xpath {
 	public void Register_05_Incorrect_Confirm_Password() {
 		driver.get("https://alada.vn/tai-khoan/dang-ky.html");
 		//Action
-				driver.findElement(By.id("txtFirstname")).sendKeys("Lanh");
-				driver.findElement(By.id("txtEmail")).sendKeys("Lanh@gmail.com");
-				driver.findElement(By.id("txtCEmail")).sendKeys("Lanh@gmail.com");
-				driver.findElement(By.id("txtPassword")).sendKeys("123456");
-				driver.findElement(By.id("txtCPassword")).sendKeys("123457");
-				driver.findElement(By.id("txtPhone")).sendKeys("0987654321");
-				driver.findElement(By.xpath("//form[@id='frmLogin']//button[text()='ĐĂNG KÝ']")).click();
+		driver.findElement(By.id("txtFirstname")).sendKeys("Lanh");
+		driver.findElement(By.id("txtEmail")).sendKeys("Lanh@gmail.com");
+		driver.findElement(By.id("txtCEmail")).sendKeys("Lanh@gmail.com");
+		driver.findElement(By.id("txtPassword")).sendKeys("123456");
+		driver.findElement(By.id("txtCPassword")).sendKeys("123457");
+		driver.findElement(By.id("txtPhone")).sendKeys("0987654321");
+		driver.findElement(By.xpath("//form[@id='frmLogin']//button[text()='ĐĂNG KÝ']")).click();
 						
 				//Verify
-				Assert.assertEquals(driver.findElement(By.id("txtCPassword-error")).getText(),"Mật khẩu bạn nhập không khớp");
+		Assert.assertEquals(driver.findElement(By.id("txtCPassword-error")).getText(),"Mật khẩu bạn nhập không khớp");
 	
 	}
 	@Test
@@ -131,33 +131,33 @@ public class Topic_03_Xpath {
 		Assert.assertEquals(driver.findElement(By.id("txtPhone-error")).getText(),"Số điện thoại phải từ 10-11 số.");
 		
 		// > 10 chars
-				driver.get("https://alada.vn/tai-khoan/dang-ky.html");
-				//Action
-				driver.findElement(By.id("txtFirstname")).sendKeys("Lanh");
-				driver.findElement(By.id("txtEmail")).sendKeys("Lanh@gmail.com");
-				driver.findElement(By.id("txtCEmail")).sendKeys("Lanh@gmail.com");
-				driver.findElement(By.id("txtPassword")).sendKeys("123456");
-				driver.findElement(By.id("txtCPassword")).sendKeys("123456");
-				driver.findElement(By.id("txtPhone")).sendKeys("098765401234");
-				driver.findElement(By.xpath("//form[@id='frmLogin']//button[text()='ĐĂNG KÝ']")).click();
+		driver.get("https://alada.vn/tai-khoan/dang-ky.html");
+		//Action
+		driver.findElement(By.id("txtFirstname")).sendKeys("Lanh");
+		driver.findElement(By.id("txtEmail")).sendKeys("Lanh@gmail.com");
+		driver.findElement(By.id("txtCEmail")).sendKeys("Lanh@gmail.com");
+		driver.findElement(By.id("txtPassword")).sendKeys("123456");
+		driver.findElement(By.id("txtCPassword")).sendKeys("123456");
+		driver.findElement(By.id("txtPhone")).sendKeys("098765401234");
+		driver.findElement(By.xpath("//form[@id='frmLogin']//button[text()='ĐĂNG KÝ']")).click();
 						
-				//Verify
-				Assert.assertEquals(driver.findElement(By.id("txtPhone-error")).getText(),"Số điện thoại phải từ 10-11 số.");
+		//Verify
+		Assert.assertEquals(driver.findElement(By.id("txtPhone-error")).getText(),"Số điện thoại phải từ 10-11 số.");
 			
 			
-	// format not start with 0
-			driver.get("https://alada.vn/tai-khoan/dang-ky.html");
-			//Action
-			driver.findElement(By.id("txtFirstname")).sendKeys("Lanh");
-			driver.findElement(By.id("txtEmail")).sendKeys("Lanh@gmail.com");
-			driver.findElement(By.id("txtCEmail")).sendKeys("Lanh@gmail.com");
-			driver.findElement(By.id("txtPassword")).sendKeys("123456");
-			driver.findElement(By.id("txtCPassword")).sendKeys("123456");
-			driver.findElement(By.id("txtPhone")).sendKeys("1234567890");
-			driver.findElement(By.xpath("//form[@id='frmLogin']//button[text()='ĐĂNG KÝ']")).click();
+		// format not start with 0
+		driver.get("https://alada.vn/tai-khoan/dang-ky.html");
+		//Action
+		driver.findElement(By.id("txtFirstname")).sendKeys("Lanh");
+		driver.findElement(By.id("txtEmail")).sendKeys("Lanh@gmail.com");
+		driver.findElement(By.id("txtCEmail")).sendKeys("Lanh@gmail.com");
+		driver.findElement(By.id("txtPassword")).sendKeys("123456");
+		driver.findElement(By.id("txtCPassword")).sendKeys("123456");
+		driver.findElement(By.id("txtPhone")).sendKeys("1234567890");
+		driver.findElement(By.xpath("//form[@id='frmLogin']//button[text()='ĐĂNG KÝ']")).click();
 					
-			//Verify
-			Assert.assertEquals(driver.findElement(By.id("txtPhone-error")).getText(),"Số điện thoại bắt đầu bằng: 09 - 03 - 012 - 016 - 018 - 019");
+		//Verify
+		Assert.assertEquals(driver.findElement(By.id("txtPhone-error")).getText(),"Số điện thoại bắt đầu bằng: 09 - 03 - 012 - 016 - 018 - 019");
 		
 		}
 	
