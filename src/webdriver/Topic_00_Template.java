@@ -23,7 +23,7 @@ public class Topic_00_Template {
 		driver.get("https://www.facebook.com/");
 	}
 
-	// check noti Slack
+	
 	@Test
 	public void TC_01_ValidateCurrentUrl() {
 		// Login Page Url matching
