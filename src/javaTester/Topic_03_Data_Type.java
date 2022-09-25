@@ -2,7 +2,9 @@ package javaTester;
 
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -59,7 +61,7 @@ public class Topic_03_Data_Type {
 		String emailInvalid = "afcfc@#$55.mail.com";
 		
 		// Class/ Interface (DateTime)
-		Date date = new Date();
+		Date date = new Date(iNumber, iNumber, iNumber);
 		
 		WebDriver driver = new FirefoxDriver();
 		
@@ -74,7 +76,7 @@ public class Topic_03_Data_Type {
 		List<Integer> studentNumber = new ArrayList<Integer>();
 		List<String> studentAddress = new ArrayList<String>();
 		
-		
+		Set<String> studentCity = new LinkedHashSet<String>();
 		
 
 	}
