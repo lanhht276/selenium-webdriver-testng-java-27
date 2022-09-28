@@ -80,11 +80,29 @@ public class Topic_05_Web_Browser {
 		driver.navigate().forward();
 		driver.navigate().refresh();
 		driver.navigate().to("");
+		
+		//Alert/ Frame (Iframe)/ Window (Tab)
+		driver.switchTo().alert();
+		
+		driver.switchTo().frame(0);
+		
+		driver.switchTo().window("");
 	}
 	
 	@Test
 	public void TC_02_Element(){
-		//Các hàm tương tác với element sẽ thppng qua biến element
+		driver.get("https://www.facebook.com/");
+		//Các hàm tương tác với element sẽ thông qua biến element
+		
+		// 2 cách để mình thao tác
+		
+		//Khai báo biến và dùng lại
+		// Dùng đi dùng lại nhiều lần, ít nhất là 2 lần thì mới cần khai báo biến
+		
+		//Khai báo biến cùng vs kiểu dữ liệu trả về của hàm
+		WebElement emailAddressTextbox = driver.findElement(By.id("email"));
+		
+		//Dùng trực tiếp - dùng có 1 lân
 	}
 
 	@Test
