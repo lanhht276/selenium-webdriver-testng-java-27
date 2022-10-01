@@ -3,6 +3,8 @@ package webdriver;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -92,7 +94,7 @@ public class Topic_05_Web_Browser {
 	@Test
 	public void TC_02_Element(){
 		driver.get("https://www.facebook.com/");
-		//Các hàm tương tác với element sẽ thông qua biến element
+		//Các hàm tương tác với element sẽ thông qua class WebElement (biến nào đó)
 		
 		// 2 cách để mình thao tác
 		
@@ -103,7 +105,55 @@ public class Topic_05_Web_Browser {
 		WebElement emailAddressTextbox = driver.findElement(By.id("email"));
 		
 		//Dùng trực tiếp - dùng có 1 lân
+		
+		//Xóa dữ liệu vào field dạng editable
+		element.sendKeys("lanh@gmail.com");
+		element.sendKeys(Keys.ENTER);
+		
+		// Trả về giá trị nằm trong atribute của element
+		element.getAttribute("placeholder");
+		// Email address ỏ phone number
+		
+		driver.findElement(By.id("firstname")).getAttribute("value");
+		 
+		// Trả về thuộc tính CSS: font size, color
+		
+		// Trả về màu nền của element
+		element.getCssValue("background-color");
+		
+		// Trả về font size của element
+		element.getCssValue("font-size");
+		
+		// Test GUI: point/ rectaglr/ size
+		element.getLocation();
+		element.getRect();
+		element.getSize();
+		  
+		//CHụp hình và attach vào HTML Report
+		element.getScreenshotAs(OutputType.FILE);
+		
+		// Trả về thẻ HTML của element
+		WebElement emailAddressTextbox = driver.findElement(By.xpath("//*[@id='email']"));
+		emailAddressTextbox = driver.findElement(By.cssSelector("#email"));
+		emailAddressTextbox.getTagName();
+		//input
+		
+		element.getText();
+		
+		// Trả về giá trị đúng hoặc sai của 1 element có hiển thị hoặc ko
+		element.isDisplayed(); 
+		
+		element.isEnabled();
+		
+		//Checkbox/ Radio
+		element.isSelected();
+		
+		// Dropdown: có 1 thư viện riêng để xử lý selected
+		
+		// chỉ làm việc được với form
+		element.submit();
 	}
+	
 
 	@Test
 	public void TC_03_() {
