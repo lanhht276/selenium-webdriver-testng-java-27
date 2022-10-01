@@ -22,14 +22,13 @@ public class Topic_06_Web_Browser_Element_P2 {
 	public void beforeClass() {
 		System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
 		driver = new FirefoxDriver();
-		driver.get("http://live.techpanda.org/");
 		
 	}
 
-	
-	@Test
+		@Test
 	public void TC_01_Current_Url() {
 		
+		driver.get("http://live.techpanda.org/");
 		
 		driver.findElement(By.xpath("//div[@class='footer']//a[@title='My Account']")).click();
 		
