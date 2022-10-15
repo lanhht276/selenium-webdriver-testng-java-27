@@ -11,7 +11,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class Topic_07_Web_Element_P3 {
+public class Topic_05_Web_Element_P3 {
 	WebDriver driver;
 	String projectPath = System.getProperty("user.dir");
 	String osName = System.getProperty("os.name");
@@ -261,14 +261,93 @@ public class Topic_07_Web_Element_P3 {
 			
 		} else {
 			System.out.println("Element is de-selected");
-
+ 
+		}
+	}
+		
+		
+	@Test
+		public void TC_04_MailChimp(){
+		
+			driver.get("https://login.mailchimp.com/signup/");
+			
+			
+			driver.findElement(By.cssSelector("input#email")).sendKeys("automationfc@mail.net");
+			sleepInSecond(3);
+			
+			WebElement passwordTextbox = driver.findElement(By.cssSelector("input#new_password"));
+			
+			passwordTextbox.sendKeys("aaa");
+			sleepInSecond(2);
+			
+			Assert.assertTrue(driver.findElement(By.cssSelector("li.lowercase-char.completed")).isDisplayed());
+			Assert.assertTrue(driver.findElement(By.cssSelector("li.uppercase-char.not-completed")).isDisplayed());
+			Assert.assertTrue(driver.findElement(By.cssSelector("li.number-char.not-completed")).isDisplayed());
+			Assert.assertTrue(driver.findElement(By.cssSelector("li.special-char.not-completed")).isDisplayed());
+			Assert.assertTrue(driver.findElement(By.xpath("//li[@class='8-char not-completed']")).isDisplayed());
+			
+			passwordTextbox.clear();
+			passwordTextbox.sendKeys("AAA");
+			sleepInSecond(2);
+			
+			Assert.assertTrue(driver.findElement(By.cssSelector("li.lowercase-char.not-completed")).isDisplayed());
+			Assert.assertTrue(driver.findElement(By.cssSelector("li.uppercase-char.completed")).isDisplayed());
+			Assert.assertTrue(driver.findElement(By.cssSelector("li.number-char.not-completed")).isDisplayed());
+			Assert.assertTrue(driver.findElement(By.cssSelector("li.special-char.not-completed")).isDisplayed());
+			Assert.assertTrue(driver.findElement(By.xpath("//li[@class='8-char not-completed']")).isDisplayed());
+			
+			passwordTextbox.clear();
+			passwordTextbox.sendKeys("123");
+			sleepInSecond(2);
+			
+			Assert.assertTrue(driver.findElement(By.cssSelector("li.lowercase-char.not-completed")).isDisplayed());
+			Assert.assertTrue(driver.findElement(By.cssSelector("li.uppercase-char.not-completed")).isDisplayed());
+			Assert.assertTrue(driver.findElement(By.cssSelector("li.number-char.completed")).isDisplayed());
+			Assert.assertTrue(driver.findElement(By.cssSelector("li.special-char.not-completed")).isDisplayed());
+			Assert.assertTrue(driver.findElement(By.xpath("//li[@class='8-char not-completed']")).isDisplayed());
+			
+			passwordTextbox.clear();
+			passwordTextbox.sendKeys("!@#$%");
+			sleepInSecond(2);
+			
+			Assert.assertTrue(driver.findElement(By.cssSelector("li.lowercase-char.not-completed")).isDisplayed());
+			Assert.assertTrue(driver.findElement(By.cssSelector("li.uppercase-char.not-completed")).isDisplayed());
+			Assert.assertTrue(driver.findElement(By.cssSelector("li.number-char.not-completed")).isDisplayed());
+			Assert.assertTrue(driver.findElement(By.cssSelector("li.special-char.completed")).isDisplayed());
+			Assert.assertTrue(driver.findElement(By.xpath("//li[@class='8-char not-completed']")).isDisplayed());
+			
+			passwordTextbox.clear(); 
+			passwordTextbox.sendKeys("12345678");
+			sleepInSecond(2);
+			
+			Assert.assertTrue(driver.findElement(By.cssSelector("li.lowercase-char.not-completed")).isDisplayed());
+			Assert.assertTrue(driver.findElement(By.cssSelector("li.uppercase-char.not-completed")).isDisplayed());
+			Assert.assertTrue(driver.findElement(By.cssSelector("li.number-char.completed")).isDisplayed());
+			Assert.assertTrue(driver.findElement(By.cssSelector("li.special-char.not-completed")).isDisplayed());
+			Assert.assertTrue(driver.findElement(By.xpath("//li[@class='8-char completed']")).isDisplayed());
+		
+			passwordTextbox.clear(); 
+			passwordTextbox.sendKeys("Abc1234@@s");
+			//sleepInSecond(2);
+			
+			Assert.assertTrue(driver.findElement(By.xpath("//input[@class='av-password success-check']")).isDisplayed());
+			
 		}
 		
-		
-	}
+	
 
 	@AfterClass
 	public void afterClass() {
 		driver.quit();
 	}
+	
+	public void sleepInSecond(long timeInSecond) {
+		try {
+			Thread.sleep(timeInSecond * 1000 );
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
 }
+	
+	
