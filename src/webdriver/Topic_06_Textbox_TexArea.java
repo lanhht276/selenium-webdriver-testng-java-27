@@ -1,10 +1,13 @@
 package webdriver;
 
+import java.awt.RenderingHints.Key;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -12,6 +15,7 @@ import org.testng.annotations.Test;
 
 public class Topic_06_Textbox_TexArea {
 	WebDriver driver;
+	Actions action;
 	String projectPath = System.getProperty("user.dir");
 	String osName = System.getProperty("os.name");
 	String firstName, lastName, employeeID, editFirstName, editLastName, passPortNumber, comments;
@@ -21,11 +25,13 @@ public class Topic_06_Textbox_TexArea {
 	public void beforeClass() {
 		System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
 		driver = new FirefoxDriver();
+		action = new Actions(driver);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		
 		firstName = "Lanh";
 		lastName = "Ho";
+		employeeID ="123668";
 		editFirstName ="Louis";
 		editLastName = "Pastor";
 		passPortNumber = "111222";
@@ -51,9 +57,17 @@ public class Topic_06_Textbox_TexArea {
 		driver.findElement(By.xpath("//input[@name='firstName']")).sendKeys(firstName);
 		driver.findElement(By.xpath("//input[@name='lastName']")).sendKeys(lastName);
 		
+		driver.findElement(By.xpath("//label[text()='Employee Id']/parent::div/following-sibling::div/input")).sendKeys(Keys.chord(Keys.CONTROL, "a"));
+		sleepInSecond(1);
+		driver.findElement(By.xpath("//label[text()='Employee Id']/parent::div/following-sibling::div/input")).sendKeys(Keys.DELETE);
+		sleepInSecond(2);
+		driver.findElement(By.xpath("//label[text()='Employee Id']/parent::div/following-sibling::div/input")).sendKeys(employeeID);
+
 		// Lưu giá trị của EmployeeID vào biến
 		// Lấy ra giá trị + Gán vào biến
 		employeeID = driver.findElement(By.xpath("//label[text()='Employee Id']/parent::div/following-sibling::div/input")).getAttribute("value");
+		
+		
 		
 		sleepInSecond(5);
 		driver.findElement(By.xpath("//button[contains(string(),'Save')]")).click();
@@ -65,6 +79,7 @@ public class Topic_06_Textbox_TexArea {
 		Assert.assertEquals(driver.findElement(By.xpath("//label[text()='Employee Id']/parent::div/following-sibling::div/input")).getAttribute("value"),employeeID);
 		System.out.println(driver.findElement(By.xpath("//label[text()='Employee Id']/parent::div/following-sibling::div/input")).getAttribute("value"));
 		sleepInSecond(7);
+		
 		
 		/*driver.findElement(By.name("firstName")).click();
 		sleepInSecond(5);
@@ -112,7 +127,7 @@ public class Topic_06_Textbox_TexArea {
 
 	@AfterClass
 	public void afterClass() {
-		//driver.quit();
+		driver.quit();
 	}
 	
 	// Sleep cứng (static wait)
