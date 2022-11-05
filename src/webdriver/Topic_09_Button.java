@@ -50,15 +50,7 @@ public class Topic_09_Button {
 		
 	}
 	
-	@Test
-	public void TC_02_(){
-	}
-
-	@Test 
-	public void TC_03_()  {
-		
-		sleepInSecond(3);
-	}
+	
 
 	@AfterClass
 	public void afterClass() {
