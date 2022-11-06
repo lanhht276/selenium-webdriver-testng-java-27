@@ -31,20 +31,31 @@ public class Topic_00_Template {
 	
 	@Test
 	public void TC_01_Login_GuardianQA() {
-		driver.get("https://tho2@mantu.com:Minhthanh078@qaguardian.o2f-it.com");
 		
-		//driver.findElement(By.cssSelector("input#username")).sendKeys("tho2@mantu.com");
-		//driver.findElement(By.xpath("//button[text()='Continue']")).click();
+		driver.get("https://tho2@mantu.com:Minhthanh078@weshare.news/home/");
 		
-		//driver.findElement(By.cssSelector("input#password")).sendKeys("");
-		//driver.findElement(By.xpath("//button[text()='Continue']")).click();
+		
+		//driver.get("https://tho2@mantu.com:Minhthanh078@qaguardian.o2f-it.com");
+		
+		driver.findElement(By.cssSelector("input#username")).sendKeys("tho2@mantu.com");
+		driver.findElement(By.xpath("//button[text()='Continue']")).click();
+		
+		driver.findElement(By.cssSelector("input#password")).sendKeys("Minhthanh078");
+		driver.findElement(By.xpath("//button[text()='Continue']")).click();
 
 		//driver.findElement(By.xpath("//span[text()='Remember this device for 30 days']")).click();
-		//driver.findElement(By.xpath("//button[text()='Continue']")).click();
+		driver.findElement(By.xpath("//button[text()='Continue']")).click();
 		
-
+		driver.get("https://tho2@mantu.com:Minhthanh078@auth.mantu.com/u/mfa-webauthn-platform-challenge?state=hKFo2SBsdWctNk1YUlI1a0xUQTFESXNnYXdNMWhJM3N1b19HZ6FusG1mYS1hdXRoZW50aWNhdGWjdGlk2SBxX1RRZm1OVXFWZW96MlBKcU52WW5ZSndvTVljNXdobaNjaWTZIGw1ZEd5MGI2SGhBQld2SFU0TFVsREtuQkdUUlRQdnNK");
+		driver.findElement(By.xpath("//button[text()='Continue']")).click();
+		
+		
+		driver.get("https://tho2@mantu.com:Minhthanh078@auth.mantu.com/u/mfa-otp-challenge?state=hKFo2SBCbGU1QmEwY3d2cnFKU0lKMUwya2NRRHE5RTJHZ3VqeqFusG1mYS1hdXRoZW50aWNhdGWjdGlk2SBKd2V6eTVTbGEzS3dWWFExMXR6T0xPRGlxc1RfaGJtUqNjaWTZIGw1ZEd5MGI2SGhBQld2SFU0TFVsREtuQkdUUlRQdnNK");
+		driver.findElement(By.xpath("//button[text()='Continue']")).click();
+		
+		
 	}
-	@Test
+	
 	public void TC_02_Hiring_From_Smart(){
 		
 		driver.get("https://tho2@mantu.com:Minhthanh078@qaarp.mantu.com/SMARTX/Candidate/4697178");
