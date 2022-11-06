@@ -126,7 +126,7 @@ public class Topic_11_Custom_Radio_Checkbox {
 
 	@AfterClass
 	public void afterClass() {
-		//driver.quit();
+		driver.quit();
 	}
 	
 	// Sleep cứng (static wait)
