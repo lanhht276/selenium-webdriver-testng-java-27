@@ -29,26 +29,48 @@ public class Topic_00_Template {
 	}
 
 	
-	
+	@Test
 	public void TC_01_Login_GuardianQA() {
-		driver.get("https://qaguardian.o2f-it.com");
+		driver.get("https://tho2@mantu.com:Minhthanh078@qaguardian.o2f-it.com");
+		
+		//driver.findElement(By.cssSelector("input#username")).sendKeys("tho2@mantu.com");
+		//driver.findElement(By.xpath("//button[text()='Continue']")).click();
+		
+		//driver.findElement(By.cssSelector("input#password")).sendKeys("");
+		//driver.findElement(By.xpath("//button[text()='Continue']")).click();
+
+		//driver.findElement(By.xpath("//span[text()='Remember this device for 30 days']")).click();
+		//driver.findElement(By.xpath("//button[text()='Continue']")).click();
+		
+
+	}
+	@Test
+	public void TC_02_Hiring_From_Smart(){
+		
+		driver.get("https://tho2@mantu.com:Minhthanh078@qaarp.mantu.com/SMARTX/Candidate/4697178");
 		
 		driver.findElement(By.cssSelector("input#username")).sendKeys("tho2@mantu.com");
 		driver.findElement(By.xpath("//button[text()='Continue']")).click();
 		
-		driver.findElement(By.cssSelector("input#password")).sendKeys("");
-		driver.findElement(By.xpath("//button[text()='Continue']")).click();
-
-		//driver.findElement(By.xpath("//span[text()='Remember this device for 30 days']")).click();
+		driver.findElement(By.cssSelector("input#password")).sendKeys("Minhthanh078");
 		driver.findElement(By.xpath("//button[text()='Continue']")).click();
 		
-
-	}
-	
-	@Test
-	public void TC_02_Hiring_From_Smart(){
+		driver.findElement(By.xpath("//span[text()='Remember this device for 30 days']")).click();
+		driver.findElement(By.xpath("//button[text()='Continue']")).click();
 		
-		driver.get("https://qaarp.mantu.com/SMARTX/Candidate/4697178");
+		
+		
+		driver.get("https://tho2@mantu.com:Minhthanh078@auth.mantu.com/u/mfa-webauthn-platform-challenge?state=hKFo2SBic1FWN3Z1bVJPMkRjcFFYdXI1N3luYXVmTUVWbDI0b6FusG1mYS1hdXRoZW50aWNhdGWjdGlk2SBRd2l0T28wOW9RYm5ZbHRjbDVEM3VqeXd5ZEVZTURKcaNjaWTZIGw1ZEd5MGI2SGhBQld2SFU0TFVsREtuQkdUUlRQdnNK");
+		driver.findElement(By.xpath("//button[text()='Continue']")).click();
+		driver.get("https://tho2@mantu.com:Minhthanh078@auth.mantu.com/u/mfa-webauthn-platform-challenge?state=hKFo2SBic1FWN3Z1bVJPMkRjcFFYdXI1N3luYXVmTUVWbDI0b6FusG1mYS1hdXRoZW50aWNhdGWjdGlk2SBRd2l0T28wOW9RYm5ZbHRjbDVEM3VqeXd5ZEVZTURKcaNjaWTZIGw1ZEd5MGI2SGhBQld2SFU0TFVsREtuQkdUUlRQdnNK");
+		
+		driver.findElement(By.xpath("//button[text()='Try another method']")).click();
+		driver.findElement(By.xpath("//button/span[text()='Recovery code']")).sendKeys(null);
+		
+		driver.findElement(By.xpath("//button[text()='Continue']")).click();
+		
+		driver.get("https://tho2@mantu.com:Minhthanh078@auth.mantu.com/u/mfa-webauthn-platform-challenge?state=hKFo2SBic1FWN3Z1bVJPMkRjcFFYdXI1N3luYXVmTUVWbDI0b6FusG1mYS1hdXRoZW50aWNhdGWjdGlk2SBRd2l0T28wOW9RYm5ZbHRjbDVEM3VqeXd5ZEVZTURKcaNjaWTZIGw1ZEd5MGI2SGhBQld2SFU0TFVsREtuQkdUUlRQdnNK");
+		
 		
 		driver.findElement(By.cssSelector("button#speed-hiring")).click();
 		driver.findElement(By.xpath("//button[contains(.,'Direct hiring')]")).click();
