@@ -110,7 +110,7 @@ public class Topic_10_Default_Radio_Checkbox {
 		
 	}
 
-	@Test 
+	
 	public void TC_03_Select_All() {
 		driver.get("https://demos.telerik.com/kendo-ui/checkbox/index");
 		sleepInSecond(5);
@@ -123,10 +123,34 @@ public class Topic_10_Default_Radio_Checkbox {
 		for (WebElement checkbox : allCheckBoxes) {
 			checkToCheckBoxOrRadio(checkbox);
 			
-			
 		}			
 		
 	}
+	
+	@Test 
+	public void TC_04_Default() {
+		driver.get("https://demos.telerik.com/kendo-ui/checkbox/index");
+		sleepInSecond(5);
+		
+		srollToElement("div.demo-section");
+		
+		checkToCheckBoxOrRadio("//label[text()='Dual-zone air conditioning']/preceding-sibling::input");
+		Assert.assertTrue(isElementSelected("//label[text()='Dual-zone air conditioning']/preceding-sibling::input"));
+		
+		unCheckToCheckBoxOrRadio("//label[text()='Dual-zone air conditioning']/preceding-sibling::input");
+		Assert.assertFalse(isElementSelected("//label[text()='Dual-zone air conditioning']/preceding-sibling::input"));
+
+		driver.get("https://demos.telerik.com/kendo-ui/radiobutton/index");
+		sleepInSecond(5);
+		
+		srollToElement("div.demo-section");
+		
+		checkToCheckBoxOrRadio("//label[text()='2.0 Petrol, 147kW']/preceding-sibling::input");
+		Assert.assertTrue(isElementSelected("//label[text()='2.0 Petrol, 147kW']/preceding-sibling::input"));
+		
+		
+	}
+		
 
 	public void checkToCheckBoxOrRadio(String xpathLocator) {
 		if (!driver.findElement(By.xpath(xpathLocator)).isSelected()){
