@@ -14,6 +14,6 @@ public class Topic_04_Random_Number {
 		System.out.println(rand.nextInt(99999));
 		System.out.println(rand.nextInt(99999));
 		
-
+		
 }
 }
