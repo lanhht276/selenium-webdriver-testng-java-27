@@ -32,7 +32,7 @@ public class Topic_05_Web_Browser_Element_P1 {
 	}
 
 	
-	@Test
+	
 	public void TC_01_Browser() {
 		//Các hàm tương tác với Browser sẽ thppng qua biến driver
 		
@@ -40,7 +40,7 @@ public class Topic_05_Web_Browser_Element_P1 {
 		driver.close();
 		
 		//Đóng browser
-		driver.quit();
+		//driver.quit();
 		
 		//Tìm ra 1 element đầu tiên
 		driver.findElement(By.cssSelector(""));
