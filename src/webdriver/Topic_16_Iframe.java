@@ -14,7 +14,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class Topic_16_IFrame {
+public class Topic_16_Iframe {
 	WebDriver driver;
 	JavascriptExecutor jsExecutor;
 	String projectPath = System.getProperty("user.dir");
