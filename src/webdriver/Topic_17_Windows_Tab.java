@@ -55,7 +55,7 @@ public class Topic_17_Windows_Tab {
 	}
 	
 	
-	@Test
+	
 	public void TC_02_Switch_By_Title(){
 		driver.get("https://automationfc.github.io/basic-form/index.html");
 		
@@ -102,7 +102,7 @@ public class Topic_17_Windows_Tab {
 	}
 	
 
-	@Test
+	
 	public void TC_03_Live_Guru()  {
 		
 		driver.get("http://live.techpanda.org/");
@@ -134,6 +134,37 @@ public class Topic_17_Windows_Tab {
 		driver.findElement(By.xpath("//a[@title='IPhone']//following-sibling::div//div[@class='actions']//ul//li/a[text()='Add to Compare']")).click();
 
 		Assert.assertEquals(driver.findElement(By.cssSelector("li.success-msg")).getText(), "The product IPhone has been added to comparison list.");
+	
+		driver.findElement(By.xpath("//a[text()='Clear All']")).click();
+		
+		driver.switchTo().alert().accept();
+		sleepInSecond(2);
+
+		Assert.assertEquals(driver.findElement(By.cssSelector("li.success-msg")).getText(), "The comparison list was cleared.");
+
+	}
+	
+	@Test
+	public void TC_04_Dictionary()  {
+		
+		driver.get("https://dictionary.cambridge.org/vi/");
+		sleepInSecond(2);
+		driver.findElement(By.xpath("//span[contains(@class, 'login-button')]/span[text()='Đăng nhập']")).click();
+		
+		switchWindowByPageTitle("Login");
+		
+		driver.findElement(By.xpath("//input[contains(@class, 'input-submit') and @value ='Log in']")).click();
+		
+		Assert.assertTrue(driver.findElement(By.xpath("//input[@name='username']/following-sibling::span[text()='This field is required']")).isDisplayed());
+		Assert.assertTrue(driver.findElement(By.xpath("//input[@name='password']/following-sibling::span[text()='This field is required']")).isDisplayed());
+		
+		driver.findElement(By.xpath("//input[@name='username' and @aria-label ='Email']")).sendKeys("automationfc.com@gmail.com");
+		driver.findElement(By.xpath("//input[@name='password' and @aria-label ='Password' and @placeholder = 'Password *']")).sendKeys("Automation000***");
+
+		driver.findElement(By.xpath("//input[contains(@class, 'input-submit') and @value ='Log in']")).click();
+
+		switchWindowByPageTitle("Cambridge Dictionary | Từ điển tiếng Anh, Bản dịch & Từ điển từ đồng nghĩa");
+		Assert.assertTrue(driver.findElement(By.xpath("//span[text()='Automation FC']")).isDisplayed());
 	}
 
 	@AfterClass
