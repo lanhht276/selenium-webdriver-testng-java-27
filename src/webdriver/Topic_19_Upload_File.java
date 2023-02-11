@@ -7,7 +7,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -33,8 +34,8 @@ public class Topic_19_Upload_File {
 
 	@BeforeClass
 	public void beforeClass() {
-		System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
-		driver = new FirefoxDriver();
+		System.setProperty("webdriver.edge.driver", projectPath + "\\browserDrivers\\msedgedriver.exe");
+		driver = new EdgeDriver();
 		jsExecutor = (JavascriptExecutor) driver;
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
@@ -42,7 +43,7 @@ public class Topic_19_Upload_File {
 	}
 
 	
-	
+	@Test
 	public void TC_01_Upload1File_Per_Time() {
 		
 		driver.get("https://blueimp.github.io/jQuery-File-Upload/");
@@ -70,6 +71,7 @@ public class Topic_19_Upload_File {
 		Assert.assertTrue(driver.findElement(By.xpath("//p[@class='name']/a[@title='" + noelFileName + "']")).isDisplayed());
 		Assert.assertTrue(driver.findElement(By.xpath("//p[@class='name']/a[@title='" + hillFileName + "']")).isDisplayed());
 		
+		sleepInSecond(2);
 		Assert.assertTrue(driver.findElement(By.xpath("//img[contains(@src,'" + beachFileName + "')]")).isDisplayed());
 		Assert.assertTrue(driver.findElement(By.xpath("//img[contains(@src,'" + noelFileName + "')]")).isDisplayed());
 		Assert.assertTrue(driver.findElement(By.xpath("//img[contains(@src,'" + hillFileName + "')]")).isDisplayed());
@@ -99,6 +101,8 @@ public class Topic_19_Upload_File {
 		Assert.assertTrue(driver.findElement(By.xpath("//p[@class='name']/a[@title='" + beachFileName + "']")).isDisplayed());
 		Assert.assertTrue(driver.findElement(By.xpath("//p[@class='name']/a[@title='" + noelFileName + "']")).isDisplayed());
 		Assert.assertTrue(driver.findElement(By.xpath("//p[@class='name']/a[@title='" + hillFileName + "']")).isDisplayed());
+		
+		sleepInSecond(3);
 		
 		Assert.assertTrue(driver.findElement(By.xpath("//img[contains(@src,'" + beachFileName + "')]")).isDisplayed());
 		Assert.assertTrue(driver.findElement(By.xpath("//img[contains(@src,'" + noelFileName + "')]")).isDisplayed());
