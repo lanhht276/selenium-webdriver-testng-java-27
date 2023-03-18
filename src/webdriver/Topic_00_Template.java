@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -16,6 +17,7 @@ public class Topic_00_Template {
 	JavascriptExecutor jsExecutor;
 	String projectPath = System.getProperty("user.dir");
 	String osName = System.getProperty("os.name");
+	WebDriverWait explicitWait;
 
 	@BeforeClass
 	public void beforeClass() {
